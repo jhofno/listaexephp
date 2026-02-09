@@ -1,5 +1,12 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividade 5!</title>
+</head>
  
+<?php
 $alunos = [
     ["nome" => "Ana", "idade" => 18, "nota" => 8.5],
     ["nome" => "Bruno", "idade" => 20, "nota" => 7.0],
@@ -15,43 +22,39 @@ $alunos = [
     ["nome" => "Mariana", "idade" => 18, "nota" => 9.4],
 ];
  
-
 usort($alunos, function($a, $b) {
     return $b['nota'] <=> $a['nota'];
 });
- 
 $somanotas = 0;
 $totalalunos = count($alunos);
- 
 echo "<table border='1' style='border-collapse: collapse;'>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Nota</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>";
- 
+<thead>
+<tr>
+<th>Nome</th>
+<th>Idade</th>
+<th>Nota</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>";
 foreach ($alunos as $aluno) {
     $somanotas += $aluno['nota'];
-    $cor = ($aluno['nota'] < 7) ? "style='background-color: #fc4a4aff;'" : "";
+    $cor = ($aluno['nota'] < 7) ? "style='background-color: #ee392cff;'" : "";
     $status = ($aluno['nota'] >= 7) ? "Aprovado" : "Reprovado";
- 
     echo "<tr $cor>
-            <td>{$aluno['nome']}</td>
-            <td>{$aluno['idade']}</td>
-            <td>{$aluno['nota']}</td>
-            <td>$status</td>
-          </tr>";
+<td>{$aluno['nome']}</td>
+<td>{$aluno['idade']}</td>
+<td>{$aluno['nota']}</td>   
+<td>$status</td>
+</tr>";
 }
- 
 $media = $somanotas / $totalalunos;
- 
 echo "</tbody>
-    </table>";
- 
-echo "<br>Média das notas: " . number_format($media, 2, ',', '.');
- 
+</table>";
+echo "<br><strong>Média das notas: </strong>" . number_format($media, 2, ',', '.');
 ?>
+ 
+ 
+<body>
+</body>
+</html>
